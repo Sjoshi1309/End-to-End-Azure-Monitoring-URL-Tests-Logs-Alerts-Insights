@@ -54,7 +54,6 @@ Used the following KQL query to collect performance data from the server: **type
 
 🔍 Benefits:
 - Centralized logging across hybrid environments
-
 - Consistent security monitoring and compliance
 
 
@@ -98,7 +97,6 @@ Added custom event tracking for request failures and key application events.
 🔍 Benefits of Using Application Insights with ASP.NET
 - End-to-End Monitoring
 Automatically tracks requests, dependencies, exceptions, and performance metrics without much manual effort.
-
 - Real-Time Insights
 Live Metrics Stream lets you see telemetry data (requests, failures, server responses) in real-time during deployments or incidents.
 
