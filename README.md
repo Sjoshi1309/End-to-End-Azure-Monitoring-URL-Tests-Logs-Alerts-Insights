@@ -102,7 +102,7 @@ Automatically tracks requests, dependencies, exceptions, and performance metrics
 - Real-Time Insights
 Live Metrics Stream lets you see telemetry data (requests, failures, server responses) in real-time during deployments or incidents.
 
-
+Smart Monitoring! 🎯
 
 
 
