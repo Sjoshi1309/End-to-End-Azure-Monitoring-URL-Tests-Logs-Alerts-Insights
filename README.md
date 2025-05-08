@@ -6,12 +6,13 @@
 - [Creating Alert Rules](#creating-alert-rules)
 - [Application Insights Configuration](#application-insights-configuration)
 
+
 ## 🌐 Monitoring –Availability /URL ping test Troubleshootin 
-Go to Application Insights > Availability -->
-Click + Add test-->
+Go to Application Insights > Availability →
+Click + Add test →
 Choose URL Ping Test.
 
-Check for alerts -->enabled
+Check for alerts →enabled
 
 set for 
 
@@ -31,6 +32,7 @@ I had used monitorwebapp.net instead of the correct www.monitorwebapp.net, and D
 🔧 Fix:
 Updated the URL to https://www.monitorwebapp.net, verified DNS using nslookup, and ensured it pointed to the Azure App Service. The test passed after correction.
 
+
 ## 📘 Log Monitoring for VM ware in Azure and Windows Server
 -  Objective:
 To collect, analyze, and visualize logs from both VMware-based virtual machines and Windows Servers in Azure using Log Analytics.
@@ -45,7 +47,52 @@ Event logs (e.g., Application, System, Security)
 
 Adding Performance counters (e.g., CPU, RAM, Disk)
 
-Query KQL to collect the server data 
+Used the following KQL query to collect performance data from the server: **type=perf**
+
+![Ping Test](Picture2.png)
+
+🔍 Benefits:
+- Centralized logging across hybrid environments
+
+- Consistent security monitoring and compliance
+
+
+## 🚨 Custom Alert Rule with KQL – CPU Utilization
+As part of performance monitoring, I created a custom KQL-based alert rule in Azure Log Analytics to detect high CPU usage on servers and generate a meaningful alert message.
+
+Objective:
+To monitor all servers and send alerts if CPU usage exceeds 80% over the last 10 minutes.
+
+KQL Query Used:
+
+let CounterValue1 = 80;
+let tmp = Perf
+| where TimeGenerated > ago(10m)
+| where CounterName == "% Processor Time" and ObjectName == "Processor"
+| where InstanceName == "_Total"
+| where CounterValue > CounterValue1
+| distinct Computer;
+tmp
+| project Alert = strcat('This - ', Computer, ' CPU utilization level has reached greater than ', CounterValue1, '%' )
+
+🛠️ What I Did:
+
+- Created a Log Analytics alert rule using the above query.
+- Targeted all machines reporting to the workspace.
+- Ensured alert reliability by testing under controlled high-load conditions.
+
+## 📦 Configuring Application Insights for ASP.NET
+✅  What I Configured:
+
+Installed SDK in my ASP.NET project.
+
+Connected telemetry using the Azure resource’s Instrumentation Key.
+
+Verified telemetry flow in Azure → Application Insights > Live Metrics.
+
+Added custom event tracking for request failures and key application events.
+
+
 
 
 
