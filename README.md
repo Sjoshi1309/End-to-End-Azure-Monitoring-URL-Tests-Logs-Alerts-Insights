@@ -1,4 +1,5 @@
 # End-to-End-Azure-Monitoring-URL-Tests-Logs-Alerts-Insights
+This project demonstrates how to implement complete observability and monitoring for web applications using Azure. It covers URL availability tests, performance log monitoring, custom alert rules, and Application Insights integration for ASP.NET apps. Ideal for ensuring application health, diagnosing issues quickly, and automating alerting in production or staging environments.
 ## Table of Contents
 - [Monitoring –Availability /URL ping test Troubleshooting](#url-ping-test-troubleshooting)
 - [Log Monitoring for VM Ware and Windows Server](#monitoring-setup)
@@ -91,6 +92,15 @@ Connected telemetry using the Azure resource’s Instrumentation Key.
 Verified telemetry flow in Azure → Application Insights > Live Metrics.
 
 Added custom event tracking for request failures and key application events.
+
+![Ping Test](Picture3.png)
+
+🔍 Benefits of Using Application Insights with ASP.NET
+- End-to-End Monitoring
+Automatically tracks requests, dependencies, exceptions, and performance metrics without much manual effort.
+
+- Real-Time Insights
+Live Metrics Stream lets you see telemetry data (requests, failures, server responses) in real-time during deployments or incidents.
 
 
 
