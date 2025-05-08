@@ -20,3 +20,4 @@ set for
 - Locations (Azure regions)  
 - Success criteria (response time, HTTP 200 OK, etc.)
 
+![Ping Test Setup](images/Picture1.png)
